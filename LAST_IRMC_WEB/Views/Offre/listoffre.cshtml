@@ -1,0 +1,65 @@
+﻿@model IEnumerable<Last_Irmc_Domain.offre>
+
+@{
+    ViewBag.Title = "listoffre";
+}
+
+
+<h2>listoffre</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.title)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.description)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.creationdate)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.experationdate)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.offretype)
+        </th>
+       
+        <th></th>
+    </tr>
+
+@foreach (var item in ViewBag.result) {
+    <tr>
+        <td>
+            @item.title
+        </td>
+        <td>
+            @item.description
+        </td>
+        <td>
+            @item.creationdate
+        </td>
+        <td>
+            @item.experationdate
+        </td>
+        <td>
+            @item.offretype
+        </td>
+        <td>
+            @item.quiz2.quiz_nom
+        </td>
+
+        <td>
+            @if (@item.offretype != 0)
+            {
+
+                @Html.ActionLink("Postuler", "Postuler", new {  id=item.quiz2.quiz_id })
+            }
+        </td>
+    </tr>
+}
+
+</table>

@@ -1,0 +1,60 @@
+﻿@model IEnumerable<Last_Irmc_Domain.mon_video>
+
+@{
+    ViewBag.Title = "listVideo";
+}
+
+<h2>listVideo</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.URI)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.description)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.title)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.uploadDate)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.vues)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in ViewBag.result) {
+    <tr>
+        <td>
+            <video onmouseover="this.play();" onmouseout="this.pause()" width="300" height="200">
+                <source type="video/mp4" />
+            </video>
+            @item.URI
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.description)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.title)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.uploadDate)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.vues)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.idVideo }) |
+            @Html.ActionLink("Details", "Details", new { id=item.idVideo }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.idVideo })
+        </td>
+    </tr>
+}
+
+</table>

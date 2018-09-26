@@ -1,0 +1,32 @@
+﻿@model IEnumerable<Last_Irmc_Domain.library>
+<html>
+
+<head>
+    <meta name="viewport" />
+</head>
+<body>
+
+
+    <table>
+        <tr>
+            <th>Library </th>
+
+        </tr>
+
+
+        @foreach (var l in ViewBag.result)
+
+        {
+            <tr>
+                <td>@l.nom</td>
+
+            </tr>
+
+
+        }
+
+    </table>
+</body>
+
+
+</html>

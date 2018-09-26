@@ -1,0 +1,66 @@
+﻿@model Last_Irmc_Domain.reponse
+
+
+@{
+    ViewBag.Title = "Postuler";
+}
+
+@{
+    List<string> xx = new List<string>();
+}
+<h2>Postuler</h2>
+@using (Html.BeginForm())
+    {
+
+
+foreach (var item in ViewBag.result)
+
+{
+    <tr>
+        <td>
+            <h3> @item.question_actual </h3>
+        </td>
+        <td>
+            @foreach (var item2 in @item.reponse) {
+
+                <p>
+                    
+                    
+
+
+                    @Html.CheckBoxFor(m => m.repcheck)
+
+
+                    @item2.lareponse
+
+                   @Html.HiddenFor(m => m.reponse_id)
+                    @Html.HiddenFor(m => m.lareponse)
+                   
+                    
+                    @if(@item2.repcheck){
+
+                     xx.Add(@item2.lareponse);
+                    @item2.reponse_id
+                    }
+                    
+                    
+                </p>
+                
+            }
+           
+        </td>
+    </tr>
+    }
+
+      @Html.ActionLink("Postuler", "Postuler", new {  xx })
+<p> @ViewBag.selectrep  </p>
+}
+
+    @foreach(var item in xx)
+    {
+        @item
+    }
+
+
+<p> @ViewBag.selectrep  </p>
+
